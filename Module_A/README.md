@@ -13,15 +13,15 @@ For this course we're going to focus exclusively on DevOps in a Linux environmen
 
 ---
 
-###Section I - The Setup
+### Section I - The Setup
 
 ```
 We're going to be working within the Linux Distro CentOS through VirtualBox
 ```
 
 ```
-Throughout this course we will provide the necessary supplemental information, but not screenshot by screenshot
-"how to install a program" type of guides.
+Throughout this course we will provide the necessary supplemental information, 
+but not screenshot by screenshot "how to install a program" type of guides.
 ```
 - [What is VirtualBox?](https://www.wikiwand.com/en/VirtualBox)
 - [Install VirtualBox](https://www.virtualbox.org/)
