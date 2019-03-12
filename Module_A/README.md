@@ -37,7 +37,7 @@ Insert Video Here
 
 - What is a hypervisor?
 - What are the different types of hypervisors?
-- What is a virtual machine?
+- **What is a virtual machine?**
 - What is Unix?
 - What is Linux?
 - Who created Linux?
@@ -56,10 +56,17 @@ Beware, there are several types of [Shells](https://www.thegeekdiary.com/unix-li
 #### What Shell am I using in CentOS?
 
 ```bash
-grep something
+ls -l "$(which sh)"
 ```
+![Alt text](./resources/ss_which_shell.png?raw=true)
 
-If you ever wanted to know anything about a Linux command:
+---
+#### Shell Resources
+
+- [TLPD](https://www.tldp.org/LDP/Bash-Beginners-Guide/html/Bash-Beginners-Guide.html)
+- [Google's Shell Style Guide](https://google.github.io/styleguide/shell.xml)
+---
+####If you ever wanted to know anything about a Linux command:
 
 **Example Syntax**
 ```bash
@@ -72,3 +79,67 @@ man cat
 man mkdir
 ```
 
+#### [Online Man Pages](http://man7.org/linux/man-pages/index.html)
+
+#### [Linux Users, Groups and Permissions](https://www.stackchief.com/tutorials/Linux%20Users,%20Groups,%20and%20Permissions)
+
+### Section II - Knowledge Mastery
+
+- **What is a user?**
+- What is a group?
+- What are permissions?
+- What is the Linux shell?
+- How do I get more informaion about Linux commands?
+
+---
+
+## Section III - Activity I - Navigation
+
+``
+You've made it to your first activity, congratulations!
+``
+
+
+- Navigate to the folder <code>/tmp</code>
+- Remove all the files within <code>/tmp</code>
+- Create the folder <code>myFolder</code>
+- Navigate into your newly created folder
+- Create the file <code>name.txt</code>
+- Write your full name into <code> name.txt </code>
+- Navigate to the folder <code>/tmp</code>
+- Create the folder <code>myFolderNew</code>
+- Move <code>myFolder</code>into<code>myFolderNew</code>
+- Install the package <code>tree</code> using <code>yum</code>
+- Navigate to <code>/tmp</code>
+- Run <code>pwd</code> 
+- Run <code>tree</code>
+- Run <code>cat /tmp/myFolderNew/myFolder/name.txt</code>
+
+![Alt text](./resources/ss_activity_i.png?raw=true)
+
+- Copy the autograder <code>activity_1_ag.sh</code> to <code>/tmp</code>
+- Execute the autograder
+
+
+![Alt text](./resources/ss_activity_i_ag.png?raw=true)
+
+``
+You've completed your first activity, congratulations!
+``
+
+#### Activity I Troubleshooting
+
+- If you cannot ***execute*** the autograder, it's okay (maybe the script isn't ***executable*** hint hint)
+- If you cannot ***install tree***, you should get a nice message that tells you the requirements
+
+### Section III - Knowledge Mastery
+
+- What is a good online resource for Linux commands?
+- How do I navigate the shell?
+- How do I create a: file, directory?
+- How do I copy files?
+- How do I move files?
+- How can I make a script executable?
+- How can I execute a script?
+
+---
