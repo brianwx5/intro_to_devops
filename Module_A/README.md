@@ -132,7 +132,7 @@ You've completed your first activity, congratulations!
 - If you cannot ***execute*** the autograder, it's okay (maybe the script isn't ***executable*** hint hint)
 - If you cannot ***install tree***, you should get a nice message that tells you the requirements
 
-### Section III - Knowledge Mastery
+### Section III - Activity I - Knowledge Mastery
 
 - What is a good online resource for Linux commands?
 - How do I navigate the shell?
