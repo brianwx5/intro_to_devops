@@ -66,7 +66,7 @@ ls -l "$(which sh)"
 - [TLPD](https://www.tldp.org/LDP/Bash-Beginners-Guide/html/Bash-Beginners-Guide.html)
 - [Google's Shell Style Guide](https://google.github.io/styleguide/shell.xml)
 ---
-####If you ever wanted to know anything about a Linux command:
+#### If you ever wanted to know anything about a Linux command:
 
 **Example Syntax**
 ```bash
