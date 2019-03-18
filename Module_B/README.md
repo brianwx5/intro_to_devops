@@ -143,3 +143,87 @@ The gist is pick the right tool for the job, and if your use case is to automate
 be to use a **scripting language**.
 
 ## Section II - More Scripting
+
+In this section we're going to pit ``Bash``scripts directly against ``Python`` scripts!
+
+Before we continue we want to highlight something called an **execution context**.
+
+The ``execution context`` or ``environment`` of a script consists of attributes such as:
+
+- The ***user*** executing the script
+- The permissions of the user executing the script
+- The group of the user executing the script
+- The permissions of the user executing the script
+- The **environment variables** exposed to the current ***session*** you are interacting with
+- The current directory you are in
+- The processes that are currently running
+
+If you noticed in previous exercises, you cannot `` yum install`` a package without prefixing the command with ``sudo``.
+
+- [What is sudo](https://www.linux.com/learn/linux-101-introduction-sudo)
+
+This is because the ***user*** you were did not have the ***permissions*** to install a package.
+
+
+When you are within a ``directory``, you can access files within that ``directory`` using dot-slash notation 
+``./``
+
+![Alt text](./resources/ss_section_ii.png?raw=true)
+
+This is because your environment knows where you are located, this can be checked 
+by executing ``pwd``.
+
+These are two small examples, but the takeaway is to **be aware that your environment is going to influence 
+how your scripts are going to execute**. 
+
+Maybe the user you execute a script as
+may not have permissions to access a directory. 
+
+Maybe you hard coded your script to access a file using dot-slash notation, but the script isn't
+actually executing within that directory and you need to ``cd`` there first.
+
+**Beware of your execution context or environment!**
+
+
+### Section II - Activity I - Simple Bash Script
+
+- Write a bash script named ``hello_world.sh`` that will output "Hello World!" ``N`` times based on a numerical input param
+
+
+```bash
+bash hello_world.sh 2
+
+"Hello World!"
+"Hello World!"
+```
+
+### Section II - Activity II - Simple Python Script
+
+- Write a Python script named ``hello_world.py`` that will output "Hello World!" ``N`` times based on a numerical input param
+
+```bash
+python hello_world.py 2
+
+"Hello World!"
+"Hello World!"
+```
+
+### Section II - Activity III - Performance Test
+
+- Copy ``hello_world_performance.sh`` to the same ``directory`` as ``hello_world.sh`` and ``hello_world.py``
+- Execute ``hello_world_performance.sh``
+- Review the output
+
+```bash
+bash hello_world_performance.sh hello_world.sh hello_world.py
+
+```
+
+### Section II - Activities - Help
+
+For each script you're going to need to:
+
+- Pass the script an input parameter that is numerical
+- Use the numerical input param to bound a loop construct
+- Print to ``standard out`` ``Hello World!`` ``N`` times where ``N`` is passed as an input parameter
+- Review the performance test and see which script took longer
