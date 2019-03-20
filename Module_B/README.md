@@ -184,6 +184,97 @@ actually executing within that directory and you need to ``cd`` there first.
 
 **Beware of your execution context or environment!**
 
+### Section II - Activity I - Introduction
+
+Before we write `Bash` and `Python` scripts let's reflect on what we have learned about scripting so far.
+
+Properties of a **Script**
+
+- An executable **text** file on an operating system
+- Generally does not need an ***explicit compile step***
+
+
+It is important to note that a script depending on the language it's written should contain a specific file extension.
+
+For example, `Python` scripts, generally should have the file extension ``.py``, but is not a necessity. 
+
+This is the same for `Bash` scripts, they generally should have the file extension(s) ```.csh, .tcsh, .bash, .sh```, but it is not a necessity.
+
+You can name a Python script ``test.py`` or ``test.txt`` and if they are both syntactically 
+correct, you can generally execute either and achieve the same result.
+
+----
+
+Let's run through a quick simple exercise of creating and executing a ``Bash`` script.
+
+Generally you should already have an idea of what you want a script to do, specifically it's **purpose**.
+
+Depending on your personal organization style, you may benefit from writing yourself an outline, etc.
+
+**Example Script Purpose**
+
+- Create a file
+- Add text to the file that says "How much wood could a woodchuck chuck?"
+- Create a copy of that file with the extension `.copy`
+- Print the contents of each file
+
+
+**Script Commands**
+```bash
+touch myFile.txt
+echo "How much wood could a woodchuck chuck?" >> myFile.txt
+cp myFile.txt myFile.copy
+cat myFile.*
+```
+
+Something that is important to me that I want to convey (please feel free to disagree), is that 
+memorization is not as important as understanding. 
+
+I don't think it's important to necessarily remember that for example the command `touch <filename>` creates a file.
+I think it's more important to understand that there **exists** a command or set of commands that can **create a file**.
+
+[StackOverflow Thread on File Creation](https://stackoverflow.com/questions/9381463/how-to-create-a-file-in-linux-from-terminal-window)
+
+After a while you **should** develop a familiarity and comfortability with navigating the command line and 
+your personal set of commands, but ultimately its okay to use Google. 
+
+Google is your friend, the internet is your friend, research is your friend!
+
+Let's get back to scripting!
+
+**Script Commands**
+```bash
+touch myFile.txt
+echo "How much wood could a woodchuck chuck?" >> myFile.txt
+cp myFile.txt myFile.copy
+cat myFile.*
+```
+
+Linux generally has a few text editors, you can use `vi` or `vim`. The cheatsheets below are
+the various commands in the editor you can execute, from copying and pasting to actually writing
+to a file. 
+
+It is **necessiary** for you to gain a basic
+working knowledge of how to use `vi` or `vim`.
+
+[vi CheatSheet](https://ryanstutorials.net/linuxtutorial/cheatsheetvi.php)
+
+[vim CheatSheet](https://www.linuxtrainingacademy.com/vim-cheat-sheet/)
+
+**Creating a Script**
+```bash
+# Create the script file
+touch myScript.sh
+# Open file in vi
+vi myScript.sh
+# Write the the script commands into the file using vi
+# Save the file
+# Make sure the file is executable
+# Execute the file
+```
+
+-- insert script creation video here --
+
 
 ### Section II - Activity I - Simple Bash Script
 
