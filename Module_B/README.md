@@ -1,4 +1,4 @@
-# Introduction to Operating Systems (Part II)
+# Introduction to Linux Scripting
 
 
 ## Section I - Scripting
@@ -310,6 +310,16 @@ bash hello_world_performance.sh hello_world.sh hello_world.py
 
 ```
 
+``
+This is an example output of the script, feel free to modify it. Try modifying it using vi or vim!
+``
+![Alt text](./resources/ss_h2h_exec.png?raw=true)
+
+
+An important take away point from the performance test, beyond seeing which one is **faster**,
+is that you can have **scripts execute other scripts**.
+
+
 ### Section II - Activities - Help
 
 For each script you're going to need to:
@@ -318,3 +328,18 @@ For each script you're going to need to:
 - Use the numerical input param to bound a loop construct
 - Print to ``standard out`` ``Hello World!`` ``N`` times where ``N`` is passed as an input parameter
 - Review the performance test and see which script took longer
+
+
+### Section II - Review 
+
+If you reached this section `congratulations!`
+
+You've done a lot, we should have learned:
+
+- What scripts are
+- How to execute scripts
+- How to compile and execute a basic Java class
+- How the environment (execution context) of a script affects its behavior
+- How to create simple scripts
+- How scripts can execute other scripts
+
