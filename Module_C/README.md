@@ -5,7 +5,7 @@
 
 The previous section had you use `vi` or `vim` to write scripts. 
 
-This is an important skill to have because sometimes you made not have an IDE available 
+This is an important skill to have because sometimes you may not have an IDE available 
 and you want to automate a task **quick and dirty** or for **functionality testing**.
 
 **Stay away from quick and dirty solutions**, generally you want to ensure that your code
@@ -40,3 +40,21 @@ it breaks we can simply rebuild it, no harm done.
 
 - https://www.jetbrains.com/help/pycharm/install-and-set-up-pycharm.html
 
+-- insert video here --
+
+## Section II - Activity II - 
+
+
+## Section () - Linux Status Codes
+
+## Section () - Activity () - 
+
+## Section () - Fork vs. Exec
+
+## Section () - Activity () - 
+
+## Section () - Service Daemons
+
+## Section () - Jobs
+
+## Section () - Activity () - 

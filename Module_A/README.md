@@ -89,7 +89,7 @@ man mkdir
 - What is a group?
 - What are permissions?
 - What is the Linux shell?
-- How do I get more informaion about Linux commands?
+- How do I get more information about Linux commands?
 
 ---
 
