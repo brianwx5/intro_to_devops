@@ -78,11 +78,12 @@ Let's say that generally it takes ``1 second`` for your program to do xyz, and x
 Let's say that generally it takes ``1 second`` for your program to do xyz, and xyz's complexity ``O(n)``
 where ``n = 10``
 
-Remember that N corresponds to the input size of the ``function``
+Remember that  ``n`` corresponds to the input size of the ``function``
 
 ``1 second`` * ``O(n)`` when ``n = 10`` ~= 10 seconds
 
 We can see that the estimated execution time of the function xyz increases as it's input ``N`` increases.
+
 
 
 

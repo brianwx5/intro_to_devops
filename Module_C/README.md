@@ -45,7 +45,59 @@ it breaks we can simply rebuild it, no harm done.
 ## Section II - Activity II - 
 
 
-## Section () - Linux Status Codes
+## Section () - Linux Exit Codes
+
+
+Linux communicates a command's success through an ``Exit Code``
+
+Let's take a look at the auto grader for Module A
+
+```bash
+which tree > /dev/null 2>&1
+
+if [ $? -ne 0 ]; then
+
+    echo "tree is not installed, install tree"
+
+    exit 1
+
+fi
+```
+
+Line 1:
+```bash
+which tree
+```
+ 
+ We're executing the command ``which tree``, this will attempt to find the command ``tree`` under 
+ `/bin, /usr/bin, etc`
+
+Line 2:
+```bash
+if [ $? -ne 0 ]
+```
+
+The command ``$?`` will return the exit code of the previous command
+
+Therefore, if the previous command's exit code is not 0
+
+(``0 means success``), then
+we will:
+
+```bash
+echo "tree is not installed, install tree"
+
+exit 1
+```
+
+Exiting the script with a exit code of 1, denoting there was an error
+
+
+
+
+
+**Resources**
+- http://www.tldp.org/LDP/abs/html/exitcodes.html
 
 ## Section () - Activity () - 
 
