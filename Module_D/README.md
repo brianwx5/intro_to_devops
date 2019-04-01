@@ -16,10 +16,6 @@ At a high level, ``algorithmic complexity`` can help engineers estimate how "lon
 ``Functions`` or ``methods`` directly correspond to their respective counterparts in a programming languages, we
 used both names to help alleviate ambiguity. 
 
-Resources 
-
-- [Carnegie Melon](https://www.cs.cmu.edu/~adamchik/15-121/lectures/Algorithmic%20Complexity/complexity.html)
-
 
 ## Section II - Basic Algorithmic Analysis
 
@@ -66,7 +62,7 @@ is a ``constant time`` or ``O(1)``
 You might have a few questions so far and it's okay!
 
 1. What does ``O(1)`` mean?
-2. Why is ``array`` indicies access ``O(1)``?
+2. Why is ``array`` index access ``O(1)``?
 3. Why does this matter anyway?
 
 
@@ -86,4 +82,21 @@ We can see that the estimated execution time of the function xyz increases as it
 
 
 
+Question 1 is answered, in that ``O(1)`` is constant
 
+Question 2 is a little more verbose, please visit this (link)[]
+
+Question 3 is answered above, in that we can see which algorithms run "faster"
+
+---
+
+Resources 
+
+- [Carnegie Melon](https://www.cs.cmu.edu/~adamchik/15-121/lectures/Algorithmic%20Complexity/complexity.html)
+
+
+**Computational Complexity** 
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YoZPTyGL2IQ/0.jpg)](https://www.youtube.com/watch?v=YoZPTyGL2IQ&feature=youtu.be&t=174)
+
+Watch the video above from 2:45 through the end, it highlights the learning goals of this module.

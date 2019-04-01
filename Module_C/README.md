@@ -90,7 +90,7 @@ echo "tree is not installed, install tree"
 exit 1
 ```
 
-Exiting the script with a exit code of 1, denoting there was an error
+We then exit the script with a exit code of 1, denoting there was an error along the way
 
 
 
@@ -101,7 +101,21 @@ Exiting the script with a exit code of 1, denoting there was an error
 
 ## Section () - Activity () - 
 
+## Section () - Linux Signals
+
+
 ## Section () - Fork vs. Exec
+
+A ``process`` is an instance of a running application
+
+Think about using a web browser such as Edge or Google Chrome, this is an application
+
+When you click on your web browser's icon, a ``process`` executes, this ``process`` runs 
+our application!
+
+``Fork`` and ``Exec`` are two ways a ``process`` can start
+
+
 
 ## Section () - Activity () - 
 
