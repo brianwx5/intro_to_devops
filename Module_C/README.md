@@ -101,23 +101,58 @@ We then exit the script with a exit code of 1, denoting there was an error along
 
 ## Section () - Activity () - 
 
-## Section () - Linux Signals
-
-
-## Section () - Fork vs. Exec
+## Section () - Linux Processes
 
 A ``process`` is an instance of a running application
 
 Think about using a web browser such as Edge or Google Chrome, this is an application
 
-When you click on your web browser's icon, a ``process`` executes, this ``process`` runs 
-our application!
+When you click on your web browser's icon, a ``process`` executes and becomes the currently running
+application!
 
-``Fork`` and ``Exec`` are two ways a ``process`` can start
+Every ``process`` has a ``PID`` or ``Process Identifying Number``
 
+
+## Section () - Fork vs. Exec
+
+``Fork`` and ``Exec`` are two ways a ``process`` can be brought to life!
+
+
+``Fork`` makes a duplicate of a currently running process, essentially a clone
+
+``Exec`` replaces the currently running process with a new process
 
 
 ## Section () - Activity () - 
+
+## Section () - Signals (IPC)
+
+**Processes** within Linux can communicate via **signals**
+
+Consider the following code snippet
+
+``` bash
+while true; do sleep 10; echo "Hello World"; done &
+[1] 4880
+~ $Hello World
+kill -9 4880
+```
+We're create an infinte loop that prints Hello World
+
+The ampersand denotes start this process or command in the background
+
+The backgrounding of the process yields the ``job`` number and the processes' ``PID``
+
+The command ``kill -9 4880`` send a ``kill signal`` to the process 4880, stopping the infinte loop in it's tracks!
+
+This is a simple example of how you can use signals to communicate with a process.
+
+
+Resources
+- http://man7.org/linux/man-pages/man7/signal.7.html
+- https://www.wikiwand.com/en/Signal_(IPC)
+- https://unix.stackexchange.com/questions/317492/list-of-kill-signals
+
 
 ## Section () - Service Daemons
 
