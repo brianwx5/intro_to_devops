@@ -9,23 +9,7 @@ Unfortunately we're not working to be mathematicians, we're working toward devop
 Therefore we're going to introduce high level  concepts that will help you to write more 
 efficient code
 
-I want to highlight why this module is important before we proceed. 
 
-As someone employed to produce, to engineer, it's important 
-to hone your craft.
-
-If you want to work for Google, Facebook, or any top tech company you need
-a fundamental grasp of computer science topics, such as what we're about to explore. 
-
-Simply because problems we solve may not inherently be new conceptually and sometimes already have mathematically
-provably efficient solutions
-
-Or building upon prior knowledge can help you arrive at a novel solution to a new problem. 
-
-Anyone that tells you "data structures and algorithms are not important" is a fool, at the very
-least they can serve as problem solving exercises to expand your programming prowess.
-
-Getting off of my soap box (haha), let's continue.
 
 ## Section I - Complexity
 
@@ -350,55 +334,87 @@ before we can make a determination
 
 I'm going to tell you out right, searching for an element in a `BST` is `O(log n)`
 
-Let's do a quick recap of `logarithms` and review the `BST` to understand why
+- [What is `O(log n)`?](https://stackoverflow.com/questions/2307283/what-does-olog-n-mean-exactly)
+- [Why is searching for an element in an Binary Search Tree (BST) `O(log n)`?](https://stackoverflow.com/questions/14426790/why-lookup-in-a-binary-search-tree-is-ologn)
 
----
+To summarize the links, if a binary tree node can have at max two children sorted
+in a particular order, each subtree you arrive at you only need to traverse one direction.
 
-What is a `logarithm`?
-
-A [`logarithm`](https://www.mathsisfun.com/algebra/logarithms.html) in simple terms answers the question:
-
-"How many of one number do we multiply to get another number?" (via mathisfun.com)
-
-If that's a little weird, it's okay here's an example.
-
-"How many 2s do we multiple to get 256 "
-
-Well, 256 is 2 raised to the power 8 and log base 2 (256) = 8
-
-`Logarithms` have various other properties, please feel free to explore those on your own
-
----
-
-Alright so we know at the very least there's a relationship between exponents and logarithms
-
-We also know that in a `Binary Tree` each node can have two children at most, therefore
-at each level beyond the root level within a `Binary Tree` can expand `x^2` where `x` is the number of nodes 
-at the current level.
-
-Let's look at the figure below: 
+Put another way, consider the `BST` below:
 
 ![Alt text](./resources/bst.png?raw=true)
 
-We can see at the level where 3 and 10 reside (they are indeed on the same level)
+We can quickly identify that 14 is the largest number
 
-3 has two children and 10 has one. 10 could have two children, but it doesn't.
+From the `root node` 8, anything to it's right, it's `right child` will be larger than it
 
-Let's use our formula and check if it makes sense, if 3 and 10 are on the same
-level, then `x` is 2 because there are two `nodes`
+Following this path we eventually will arrive at the `maximum node`
 
-`x^2` when `x` is 2 yields 4, it seems like that matches up with our statement that 3
-and 10 could potentially have two children each.
+We can note that there is a total of 9 nodes in this tree, but we only 
+traverse two nodes to reach the third
 
----
+Let's take a look at the node 14, we see that it doesn't have a `right child`
+only a `left child`, this is how we know it's a stopping point.
 
-...
+Full circle, we notice at each level of the tree, we half the amount of nodes
+we have to process, simply because of the composition of the `data structure`
 
-...
+This halving of the problem space generally results in `O(log n)` complexity
 
 --- 
 
-...
+Now that we've talked through the prior let's **compare performance**
+
+
+`n` is the input size
+
+`task_time` is how long it takes to run an algorithm 
+
+
+
+| n  |  task_time (s) |complexity `O(n)` |  complexity `O(log n)` | 
+|---|---|---|---|
+|  10 |   2|   10 * 2 = 20 s| 3.32 * 2 = ~ 6 s|   
+|  1000 |  2 |  1000 * 2 = 2000 s  |  9.96 * 2 =  ~ 20 s|   
+|  10000 |  2 |  10000 * 2 = 20000 s  | 13.28 * 2 =  ~ 26 s |   
+
+
+No debate, there's a clear winner here, `BST` > `lists` for finding
+the maximum element
+
+
+Moral of this story be aware of the `data structures` you are using
+
+Moving onto our next section and activity we're going to see this in action
+
+## Section IV - Computer Science and Scripting Activities
+
+Head over to Module_D/s3-a/compare_funcs.py
+
+Execute `compare_funcs.py`
+```bash
+python compare_funcs.py
+```
+**Sample Output**
+```
+Create duplicate
+209.12.27.58
+=======================
+There is the possibility of there being more than one duplicate in the list
+Running O(n^2) function
+Found Duplicate
+209.12.27.58
+Found Duplicate
+209.12.27.58
+[O(n^2) function] [Execution Time 5.926390171051025] [n == 10000]
+```
+
+In this script there are two functions, they are both attempting to find 
+duplicate ip addresses in a list
+
+Execute the script a few times, changing the variable `upper_limit` and note the performance
+considerations of each function
+
 
 
 ***

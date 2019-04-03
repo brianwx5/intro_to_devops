@@ -1,8 +1,5 @@
 from anytree import Node, RenderTree, AsciiStyle
 
-l = [0, 1, 2, 99.0, 118.0, 200.315, 75, 64, 22]
-
-
 def find_max_cpu_util(cpu_list):
     max = -1
     for c in cpu_list:
