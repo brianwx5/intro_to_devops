@@ -154,7 +154,13 @@ Resources
 - https://unix.stackexchange.com/questions/317492/list-of-kill-signals
 
 
-## Section () - Service Daemons
+## Section () - Daemons
+
+"A `daemon` is a long-running background process that answers requests for services. 
+The term originated with Unix, but most operating systems use daemons in some form or another. In Unix,
+the names of daemons conventionally end in "d". Some examples include `inetd`, `httpd`, `nfsd`, and `sshd`."
+
+https://kb.iu.edu/d/aiau
 
 ## Section () - Jobs
 
