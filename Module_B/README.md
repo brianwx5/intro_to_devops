@@ -275,6 +275,9 @@ vi myScript.sh
 
 -- insert script creation video here --
 
+<video width="320" height="240" controls>
+  <source src="./resources/vim_tut.mp4" type="video/mp4">
+</video>
 
 ### Section II - Activity I - Simple Bash Script
 
