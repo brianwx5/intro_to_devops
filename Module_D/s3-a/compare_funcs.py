@@ -22,6 +22,9 @@ def find_dupe_ip2(list):
             else:
                 dict[ip] = 1
 
+# Your implementation here (purely optional)
+def find_dupe_ip3(list):
+    return 0
 
 if __name__ == '__main__':
 
@@ -53,6 +56,7 @@ if __name__ == '__main__':
     find_dupe_ip(list_of_ip_addresses)
     elapsed_time = time.time() - start_time
     print("[O(n^2) function] [Execution Time %s] [n == %s]" % (str(elapsed_time), str(upper_limit)))
+
     print("=======================")
     print("There is the possibility of there being more than one duplicate in the list")
     print("Running O(n) function")
@@ -62,4 +66,11 @@ if __name__ == '__main__':
     print("[O(n) function] [Execution Time %s] [n == %s]" % (str(elapsed_time),  str(upper_limit)))
 
 
+    print("=======================")
+    print("There is the possibility of there being more than one duplicate in the list")
+    print("Running your function")
+    start_time = time.time()
+    find_dupe_ip3(list_of_ip_addresses)
+    elapsed_time = time.time() - start_time
+    print("[O(n) function] [Execution Time %s] [n == %s]" % (str(elapsed_time),  str(upper_limit)))
 

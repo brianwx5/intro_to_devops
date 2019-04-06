@@ -398,15 +398,21 @@ python compare_funcs.py
 **Sample Output**
 ```
 Create duplicate
-209.12.27.58
+35.155.115.85
 =======================
 There is the possibility of there being more than one duplicate in the list
 Running O(n^2) function
 Found Duplicate
-209.12.27.58
+35.155.115.85
 Found Duplicate
-209.12.27.58
-[O(n^2) function] [Execution Time 5.926390171051025] [n == 10000]
+35.155.115.85
+[O(n^2) function] [Execution Time 5.5942089557647705] [n == 10000]
+=======================
+There is the possibility of there being more than one duplicate in the list
+Running O(n) function
+Found Duplicate
+35.155.115.85
+[O(n) function] [Execution Time 0.001837015151977539] [n == 10000]
 ```
 
 In this script there are two functions, they are both attempting to find 
@@ -415,7 +421,72 @@ duplicate ip addresses in a list
 Execute the script a few times, changing the variable `upper_limit` and note the performance
 considerations of each function
 
+**Feel free to take a crack at implementing you're own solution and
+see how it stacks up!**
 
+## Section V- Introduction to Threading
+
+In its simplest form a `thread` is a mechanism used to perform a task
+
+Every program or piece of software that is written contains at least 1 `thread`
+
+Consider this snippet of `Python` from the script s3-a/1_thread.py
+
+```python
+l = ["h","e", "l", "l", "o"]
+for c in l:
+    print(c)
+```
+
+When the script executes, the `list l` is iterated and each letter is printed
+
+All of this happens with the context of a `thread`, for this script
+one `thread` begins execution and performs its intended actions
+
+We talked briefly about `processes` when explaining "Fork vs. Exec", generally
+`processes` are made up of many `threads`
+
+`Threads` at a high level allow a `process` or an application to perform multiple tasks at the same time
+instead of everything occurring sequentially
+
+Imagine an ice cream truck, we can think of `threads` as its employees
+
+In an ice cream truck with a single employee, I think we've all experienced 
+the pain of having to wait to other people to order and be served before we can order ourselves
+
+Then, we get to order and they ran out of our favorite flavor, oh noooooo!
+
+Imagine the efficiency gained, by having multiple employees on a truck, they have
+to work together to serve customers, but ultimately can serve roles complementary to each other
+
+This is essentially the essence of `multithreading` utilizing multiple threads effectively
+to increase application performance
+
+The issue with ``threading`` is that its **hard** and when implemented creates its own sets of problems
+
+
+## Section VI - Threading and Scripting
+
+
+Consider this snippet of `Python` from the script s3-a/multiple_thread.py
+
+```python
+import threading, random, time
+
+def printer(s):
+    time.sleep(random.randint(0, 2))
+    print(s)
+
+l = ["h","e", "l", "l", "o"]
+for c in l:
+    threading.Thread(target=printer, args=c).start()
+
+```
+
+Execute the script and check it's output, you might notice that it doesn't 
+necessarily print "hello" in its correct order
+
+-- add analysis and activity
 
 ***
 

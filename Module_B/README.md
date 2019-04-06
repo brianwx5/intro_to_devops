@@ -87,7 +87,7 @@ which java
 If we notice that ``Java`` is not already installed, execute:
 
 ```bash
-sudo yum installed java-1.8.0-openjdk
+sudo yum install java-1.8.0-openjdk
 ```
 
 - What is a [JDK](https://www.wikiwand.com/en/Java_Development_Kit)?
