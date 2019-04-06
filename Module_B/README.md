@@ -273,12 +273,7 @@ vi myScript.sh
 # Execute the file
 ```
 
--- insert script creation video here --
-
-<video width="320" height="240" controls>
-  <source src="./resources/vim_tut.mp4" type="video/mp4">
-</video>
-
+![Alt Text](https://media.giphy.com/media/U8Xb3i4vglZTfAOAPk/giphy.gif)
 ### Section II - Activity I - Simple Bash Script
 
 - Write a bash script named ``hello_world.sh`` that will output "Hello World!" ``N`` times based on a numerical input param
