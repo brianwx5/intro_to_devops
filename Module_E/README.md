@@ -104,3 +104,36 @@ eventually develop a preference
 
 How can I run shell commands through Python?
 https://docs.python.org/3/library/subprocess.html
+
+## Section III - Introduction to Docker
+
+`Docker` allows you to create `containers`, `containers` can be thought of
+as lightweight `virtual machines` that can live on a host `operating system`
+
+You can theoretically have an infinite amount of `containers` on your course virtual machine
+if your computer has enough CPU, RAM, etc
+
+Some of my favorite links on `containers`
+
+- https://engineering.squarespace.com/blog/2017/understanding-linux-container-scheduling
+- https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/resource_management_guide/ch01
+- https://docs.docker.com/engine/docker-overview/
+
+
+## Section III - Activity I - Install Docker
+
+Feel free to run these commands by hand or create a script
+
+```bash
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install docker-ce
+sudo usermod -aG docker $(whoami)
+sudo systemctl enable docker
+```
+
+Validate the install 
+
+```bash
+which docker
+docker
+```
