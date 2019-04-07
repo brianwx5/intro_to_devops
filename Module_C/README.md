@@ -1,4 +1,4 @@
-# Linux Scripting - Continued
+# Linux Scripting and Operating System
 
 
 ## Section I - Introduction

@@ -1,4 +1,4 @@
-# Introduction to Operating Systems (Part I)
+# Introduction to Operating Systems
 
 ## Preliminary Information
 What is an [operating system](https://www.wikiwand.com/en/Operating_system)?
