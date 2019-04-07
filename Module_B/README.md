@@ -274,6 +274,8 @@ vi myScript.sh
 ```
 
 ![Alt Text](https://media.giphy.com/media/U8Xb3i4vglZTfAOAPk/giphy.gif)
+
+https://youtu.be/Dk-_rzFcyCg?t=2
 ### Section II - Activity I - Simple Bash Script
 
 - Write a bash script named ``hello_world.sh`` that will output "Hello World!" ``N`` times based on a numerical input param
