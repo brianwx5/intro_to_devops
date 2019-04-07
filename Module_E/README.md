@@ -69,3 +69,38 @@ If that's successful type `ruby -v` and you should see `ruby 2.6.2p47`
 
 **Congratulations** you've executed a configuration script to successfully download and install 
 the programming language `Ruby`!
+
+## Section II - Activity II - Install Go Lang (Shell Script)
+
+Review the steps in the link below:
+
+https://golang.org/doc/install#install
+
+Try to download and install `Go lang` on your virtual machine
+
+**Pro Tip** take the code from ``Module_E/resources/install_sw.sh`` and 
+modify where you need to for `Go lang`
+
+After you are finished, you can either run the autograder `/resources/go_ag.sh` or 
+type `which go` to make sure it's installed properly
+
+## Section II - Activity III - Install Go Lang (Python Script)
+
+Run the `Go lang` uninstaller under `/resources/*` 
+
+Try to perform the same exercise as Activity II, but instead using Python
+ 
+There are a few ways you can do this
+
+- Create a Python script that executes your shell script from Activity II
+- Create a Python script that runs shell commands, and transplant your shell
+code to Python
+- Create a Python script that uses a mix of shell commands and Python libraries
+
+The outline above is listed by difficulty, pick what's the easiest for you
+
+The gist is to get you familiar with multiple scripting languages, so that you can
+eventually develop a preference 
+
+How can I run shell commands through Python?
+https://docs.python.org/3/library/subprocess.html
