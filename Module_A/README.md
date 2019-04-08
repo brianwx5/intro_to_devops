@@ -85,8 +85,7 @@ man mkdir
 
 ### Section II - Knowledge Mastery
 
-- **What is a user?**
-- What is a group?
+
 - What are permissions?
 - What is the Linux shell?
 - How do I get more information about Linux commands?
@@ -143,3 +142,83 @@ You've completed your first activity, congratulations!
 - How can I execute a script?
 
 ---
+### Section IV - Users & Groups
+
+A `user` is an account on the target operating system that can take actions, such as logging into
+the interface or browsing the internet
+
+Every `user` has certain `permissions` that allows them to perform actions
+
+Attempt to run the command below
+
+```bash
+yum install bind-utils
+```
+
+Generally unless you are the `root user` you cannot install packages from `Yum`
+
+You can however use the `sudo` command to **assume root privileges** 
+to perform a specific action
+
+### Section IV -  Activity I - Create a User
+Let's try to create a new user named ***johnny***
+
+```bash
+sudo adduser johnny
+```
+
+**Pro Tip** notice we prefix the command with `sudo` this is so that the current account
+running the command can assume `root permissions` 
+
+Let's check if the new user you created exists
+
+```bash
+sudo id -u johnny
+echo $?
+```
+
+The first command `id -u {username}` should return the `ID` of that particular
+user
+
+The second command `echo $?` will return `0` or `1` whether the previous command 
+was successful, we will learn more later on what those integers mean, but for now we would
+like to see `0`
+
+### Section IV -  Activity II - Create a Group
+
+`Groups` group `users` together, allowing you to grant permissions to groups of users
+instead of each user individually
+
+Let's try to create a new group named **testing**
+
+```bash
+sudo groupadd testing
+``` 
+
+Let's check if the new group you created exists
+
+```bash
+sudo getent group testing
+echo $?
+```
+
+If all is well, let's add our new user to our new group
+
+```bash
+sudo usermod -a -G testing johnny
+```
+
+### Section IV -  Permissions
+
+Each `user` and `group` has `permissions` that allow them to perform
+commands within Linux
+
+One of my favorite resource is the [chmod calculator](https://chmod-calculator.com/), I use it
+to double check whether I am assigning the correct `permissions`
+
+
+### Section IV - Activities - Knowledge Mastery
+
+- **What is a user?**
+- What is a group?
+
