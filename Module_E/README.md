@@ -213,7 +213,7 @@ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' al
 
 Enter `al`
 ```bash
-docker exec -it al /bin/sh
+docker exec -it al /bin/ash
 ```
 
 

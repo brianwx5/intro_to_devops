@@ -11,15 +11,21 @@ RUN echo "$ssh_pub_key" > /$(whoami)/.ssh/authorized_users
 RUN chmod -R 755 /$(whoami)/.ssh/
 
 RUN apk add --no-cache openssh
+
+RUN echo "PermitRootLogin without-password" >> /etc/ssh/sshd_config
+RUN echo "PasswordAuthentication no" >> /etc/ssh/sshd_config
+RUN echo "PermitEmptyPasswords yes" >> /etc/ssh/sshd_config
+RUN netstat -anp
+
 RUN apk add openrc --no-cache
 RUN mkdir -p /run/openrc
 RUN touch /run/openrc/softlevel
 RUN passwd -d root
 
-RUN apk --no-cache add openssh
-RUN sleep 5
-RUN echo "PermitRootLogin without-password" >> /etc/ssh/sshd_config
-RUN /usr/bin/ssh-keygen -A
-RUN /usr/sbin/sshd -p 22
-RUN sleep 5
-RUN netstat -anp
+#RUN /etc/init.d/sshd status
+#RUN /etc/init.d/sshd start
+
+
+# docker pull alpine
+# docker run -i -t -d --name al alpine
+# docker exec -it al /bin/sh
