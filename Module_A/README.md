@@ -208,6 +208,11 @@ If all is well, let's add our new user to our new group
 sudo usermod -a -G testing johnny
 ```
 
+You're all finished, now navigate to ``/Module_A/ag/`` and execute ``activity_2_ag.sh``
+```bash
+sudo bash activity_2_ag.sh
+```
+
 ### Section IV -  Permissions
 
 Each `user` and `group` has `permissions` that allow them to perform
@@ -216,9 +221,85 @@ commands within Linux
 One of my favorite resource is the [chmod calculator](https://chmod-calculator.com/), I use it
 to double check whether I am assigning the correct `permissions`
 
+`Users` need permissions to perform actions, such as **navigating into a directory** or 
+**executing a service or script**
+
+### Section IV - Activity III - Permissions
+
+Navigate to ``/Module_A/scripts`` and inspect ``activity_3.sh``
+
+**cat {{ filename }}**
+```bash
+cat activity_3.sh
+```
+
+**Output**
+```bash
+echo "echo \"You have the correct permissions to execute this script\"" >> a3.sh
+sudo chmod 000 ./a3.sh
+
+```
+
+**Pro Tip** ``cat`` will print a text file to your terminal, but if it's a large file
+inspect it with `head` or `tail` instead
+
+``activity_3.sh`` creates a new script `a3.sh` that
+will echo :
+
+"You have the correct permissions"
+
+**Execute the script**
+```bash
+bash activity_3.sh
+```
+**Now attempt to execute ``a3.sh``**
+
+```bash
+bash a3.sh
+```
+
+You should get the output below
+
+```bash
+bash: a3.sh: Permission denied
+```
+
+This is an example of a ``permissions`` issue, let's investigate!
+
+---
+### Section IV - Activity III - Permissions Investigation
+
+In any ``permissions`` issue scenario it generally boils down to a few situations
+
+- The ``user`` doesn't have ``permission``
+- The ``group`` a ``user`` is in doesn't have the ``permission``, therefore the ``user`` doesn't have the ``permission``
+- The file itself doesn't have the `permission` to be **read**, **written to**, **executed**, or is **locked**
+
+
+Let's figure out where we've gone wrong ***hint hint*** if you closely inspected ``activity_3.sh`` and checked
+out the chmod calculator you already know.
+
+To inspect a file we can run the `stat` command
+
+``stat {{ filename }}``
+
+```bash
+stat a3.sh
+```
+
+If you check the output, you should see various attributes such as
+`file size`, `inode` `link count` as well as **access**
+
+Let's change the permissions of the file 
+
+`chmod 777 a3.sh`
+
+Now let's try to execute the script again
+
 
 ### Section IV - Activities - Knowledge Mastery
 
 - **What is a user?**
 - What is a group?
+- What are permissions?
 
