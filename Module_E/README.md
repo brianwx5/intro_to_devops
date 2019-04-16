@@ -126,7 +126,7 @@ Feel free to run these commands by hand or create a script
 
 ```bash
 sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-sudo yum install docker-ce
+sudo yum install docker-ce -y
 sudo usermod -aG docker $(whoami)
 sudo systemctl enable docker
 ```
@@ -135,5 +135,58 @@ Validate the install
 
 ```bash
 which docker
+sudo systemctl status docker
 docker
 ```
+
+## Section III - Activity II - Use Docker
+
+We're going to use docker to pull down an `image` an `image` can be
+thought of as a snapshot of an operating system. `Images` can then be used
+to instantiate `containers`
+
+https://hub.docker.com/_/alpine
+
+Download the latest [Alpine Linux](https://alpinelinux.org/) Container
+```bash
+docker pull alpine
+```
+List locally downloaded docker images
+```bash
+docker image ls
+```
+Create a docker container from the alpine image named ``al``
+```bash
+docker run -i -t -d --name al alpine
+```
+
+**Pro Tip** the `-d` flag runs the docker container as a daemon or in the background,
+try running the command without the `-d` to understand 
+the behavior 
+
+List running containers
+```bash
+docker ps
+```
+
+Enter into the container
+```bash
+docker exec -it al /bin/sh
+```
+
+We're entering the container by name, follow the screenshot below
+you should get similar output by running `whoami`, `uname -a`, and `ls -alt`
+
+![Alt text](./resources/s32.png?raw=true)
+
+Type `exit` to leave the container
+
+To stop the container from running and check that it's done:
+```
+docker stop al
+docker ps
+```
+
+**Congratulations** you have **downloaded**, **started** and **entered into** 
+a ``container``!
+
