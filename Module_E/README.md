@@ -105,7 +105,7 @@ eventually develop a preference
 How can I run shell commands through Python?
 https://docs.python.org/3/library/subprocess.html
 
-## Section III - Introduction to Docker
+## Section III - Docker & Configuration
 
 `Docker` allows you to create `containers`, `containers` can be thought of
 as lightweight `virtual machines` that can live on a host `operating system`
@@ -177,7 +177,7 @@ docker exec -it al /bin/sh
 We're entering the container by name, follow the screenshot below
 you should get similar output by running `whoami`, `uname -a`, and `ls -alt`
 
-![Alt text](./resources/s32.png?raw=true)
+![Alt text](./resources/ss32.png?raw=true)
 
 Type `exit` to leave the container
 
@@ -190,3 +190,96 @@ docker ps
 **Congratulations** you have **downloaded**, **started** and **entered into** 
 a ``container``!
 
+## Section III - Activity III - Configure a Container
+
+Generally, you're going to configure a container with a `Dockerfile`
+but, for this and subsuquent exercises we're going to use `containers`
+as a mechanism by which we can learn strategies to solve the `configuration problem`
+
+For these next sections, think of a `container` as a `server` on a network
+that you are responsible for.
+
+Let's get al back online 
+
+```
+docker start al
+```
+
+Let's get `al`'s ip address
+
+```bash
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' al
+```
+
+Enter `al`
+```bash
+docker exec -it al /bin/sh
+```
+
+
+```bash
+apk add --no-cache openssh
+apk add openrc --no-cache
+rc-update add sshd
+mkdir -p /run/openrc
+touch /run/openrc/softlevel
+passwd -d root
+```
+
+Exit the container by typing `exit`
+
+On the `host` OS (centos) let's create a SSH key, don't set a passphrase!
+
+```bash
+ssh-keygen -f ./al-key -t rsa
+```
+
+Copy and paste this output to a notepad (this is the public key)
+```bash
+cat al-key.pub
+```
+
+Enter `al` again
+```bash
+docker exec -it al /bin/sh
+```
+
+```bash
+mkdir -p /root/.ssh
+touch /root/.ssh/authorized_keys
+apk add --no-cache vim
+vim /root/.ssh/authorized_keys
+```
+
+Copy and paste the `public key` into vim, while it has `/root/.ssh/authorized_keys`
+open
+
+```bash
+vim /etc/ssh/sshd_config
+```
+
+Uncomment "PermitRootLogin" and make it appear as below
+![Alt text](./resources/ss33.png?raw=true)
+
+
+Restart the SSHD service
+```
+rc-service sshd restart
+```
+
+Exit the container 
+
+Try to **SSH** into `al`
+```bash
+ssh -i al-key root@$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' al)
+```
+You should see output similar to below
+
+![Alt text](./resources/ss33_2.png?raw=true)
+
+**Wow** you've just set up SSH on a container, this will serve as the building block
+for ``Module F``!
+## Section III - Docker & Configuration - Review
+
+
+## Introduction to Configuration - Reflection
