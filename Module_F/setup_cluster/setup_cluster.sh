@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+rm -f ./manage_list.txt
 
 docker stop $(docker ps -a --filter="name=cluster-" | awk 'FNR > 1 {print $1}')
 
