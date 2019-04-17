@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 
-docker stop $(docker ps -a --filter="name=cluster-server" | awk 'FNR > 1 {print $1}')
+docker stop $(docker ps -a --filter="name=cluster-" | awk 'FNR > 1 {print $1}')
 
-docker container rm $(docker ps -a --filter="name=cluster-server" | awk 'FNR > 1 {print $1}') -f
+docker container rm $(docker ps -a --filter="name=cluster-" | awk 'FNR > 1 {print $1}') -f
 
 docker image rm cluster-server -f
 
