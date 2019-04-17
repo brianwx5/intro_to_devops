@@ -7,8 +7,9 @@
           /_/   \_\_| .__/|_|_| |_|\___| |_____|_|_| |_|\__,_/_/\_\
                     |_|
 
+		  User        : {{ ansible_user_id }}
           OS          : {{ ansible_distribution }} {{ ansible_distribution_version }}
           Hostname    : {{ ansible_hostname }}
-          IP address  : {{ ansible_eth0.ipv4.address }}
+          IP address  : {{ ansible_default_ipv4.address }}
           System type : {{ ansible_system }}
-          Kernel      : {{ ansible_kernel }}
+          Python -V   : {{ ansible_python_version }}
