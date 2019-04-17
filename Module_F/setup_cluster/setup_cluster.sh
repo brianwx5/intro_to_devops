@@ -29,7 +29,11 @@ fi
 done
 
 
-(docker exec -it cluster-master /bin/sh -c "cat > /opt/ansible/launchpad/hosts.txt") < $(cat ./manage_list.txt)
+docker cp manage_list.txt cluster-master:/opt/ansible/launchpad/host.txt
+
+docker cp ansible-playbook.yml cluster-master:/opt/ansible/launchpad/ansible-playbook.yml
+
+docker cp motd.j2 cluster-master:/opt/ansible/launchpad/motd.j2
 
 
 # for i in $(seq 1 1 20)

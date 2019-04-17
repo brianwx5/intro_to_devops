@@ -1,0 +1,15 @@
+
+
+- name: Configuration & Application Deployment
+  remote_user: root
+  gather_facts: True
+
+- debug: msg="Hello World!"
+
+- name: put a default motd file in place
+  template:
+    src:  motd.j2
+    dest: /etc/motd
+    owner: root
+    group: root
+    mode: 0644
