@@ -11,7 +11,7 @@ rm -f clusterkey*
 
 ssh-keygen -f ./clusterkey -t rsa -N ''
 
-docker build -t cluster-server --build-arg ssh_pub_key="$(cat ./clusterkey.pub)"  --build-arg ssh_prv_key="$(cat ./clusterkey)".
+docker build -t cluster-server --build-arg ssh_pub_key="$(cat ./clusterkey.pub)"  --build-arg ssh_prv_key="$(cat ./clusterkey)" .
 
 sleep 2
 
