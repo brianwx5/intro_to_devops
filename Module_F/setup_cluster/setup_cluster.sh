@@ -17,17 +17,20 @@ sleep 2
 
 for i in $(seq 1 1 20)
 do
-
 if [[ ${i} == 1 ]]; then
 docker run -i -t -d --name cluster-master cluster-server
 docker exec -it cluster-master netstat -anp
-docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' cluster-server-${i}
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' cluster-master
 else
 docker run -i -t -d --name cluster-server-${i} cluster-server
-docker exec -it cluster-server netstat -anp
-docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' cluster-server-${i}
+docker exec -it cluster-server-${i} netstat -anp
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' cluster-server-${i} >> ./manage_list.txt
 fi
 done
+
+
+(docker exec -it cluster-master /bin/sh -c "cat > /opt/ansible/launchpad/hosts.txt") < $(cat ./manage_list.txt)
+
 
 # for i in $(seq 1 1 20)
 # do
