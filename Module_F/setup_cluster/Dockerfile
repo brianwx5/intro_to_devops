@@ -1,5 +1,6 @@
 FROM alpine
 ARG ssh_pub_key
+ARG ssh_prv_key
 
 # Authorize SSH Host
 RUN mkdir -p /$(whoami)/.ssh
@@ -21,5 +22,10 @@ RUN ssh-keygen -A
 
 RUN echo "/usr/sbin/sshd" >> /tmp/start_sshd.sh
 RUN chmod 777 /tmp/start_sshd.sh
+RUN apk add ansible
+RUN apk add python
 
+
+RUN mkdir -p /opt/ansible/launchpad/
+RUN echo "$ssh_prv_key" > /opt/ansible/launchpad/clusterkey
 ENTRYPOINT /tmp/start_sshd.sh; /bin/sh
