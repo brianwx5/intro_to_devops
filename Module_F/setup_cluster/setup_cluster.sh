@@ -16,13 +16,12 @@ docker build -t cluster-server --build-arg ssh_pub_key="$(cat ./clusterkey.pub)"
 
 sleep 2
 
-docker run -i -t -d --name cluster-server cluster-server
 
-sleep 2
-
+for i in `seq 0, 1, 20`; do
+docker run -i -t -d --name cluster-server-${i} cluster-server
 docker exec -it cluster-server netstat -anp
-
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' cluster-server
+done
 
-ssh -o "StrictHostKeyChecking no" -i clusterkey root@$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' cluster-server)
+# ssh -o "StrictHostKeyChecking no" -i clusterkey root@$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' cluster-server)
 
