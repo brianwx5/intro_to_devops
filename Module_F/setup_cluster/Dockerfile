@@ -19,3 +19,5 @@ RUN echo "PermitEmptyPasswords yes" >> /etc/ssh/sshd_config
 RUN passwd -d root
 RUN ssh-keygen -A
 
+RUN echo "/usr/sbin/sshd" >> /tmp/start_sshd.sh
+RUN chmod 777 /tmp/start_sshd.sh
