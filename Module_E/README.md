@@ -196,8 +196,8 @@ Generally, you're going to configure a container with a `Dockerfile`
 but, for this and subsuquent exercises we're going to use `containers`
 as a mechanism by which we can learn strategies to solve the `configuration problem`
 
-For these next sections, think of a `container` as a `server` on a network
-that you are responsible for.
+We're going to hand configure a `container` to be able to be reached
+via `SSH`
 
 Let's get al back online 
 
@@ -219,10 +219,6 @@ docker exec -it al /bin/ash
 
 ```bash
 apk add --no-cache openssh
-apk add openrc --no-cache
-rc-update add sshd
-mkdir -p /run/openrc
-touch /run/openrc/softlevel
 passwd -d root
 ```
 
@@ -231,7 +227,7 @@ Exit the container by typing `exit`
 On the `host` OS (centos) let's create a SSH key, don't set a passphrase!
 
 ```bash
-ssh-keygen -f ./al-key -t rsa
+ssh-keygen -f ./al-key -t rsa -N ''
 ```
 
 Copy and paste this output to a notepad (this is the public key)
@@ -241,7 +237,7 @@ cat al-key.pub
 
 Enter `al` again
 ```bash
-docker exec -it al /bin/sh
+docker exec -it al /bin/ash
 ```
 
 ```bash
@@ -249,22 +245,27 @@ mkdir -p /root/.ssh
 touch /root/.ssh/authorized_keys
 apk add --no-cache vim
 vim /root/.ssh/authorized_keys
+chmod 700 /root/.ssh
+chmod 640 /root/.ssh/authorized_keys
 ```
 
 Copy and paste the `public key` into vim, while it has `/root/.ssh/authorized_keys`
 open
+
 
 ```bash
 vim /etc/ssh/sshd_config
 ```
 
 Uncomment "PermitRootLogin" and make it appear as below
+
 ![Alt text](./resources/ss33.png?raw=true)
 
 
-Restart the SSHD service
+Start the SSHD service
 ```
-rc-service sshd restart
+ssh-keygen -A
+/usr/sbin/sshd
 ```
 
 Exit the container 
