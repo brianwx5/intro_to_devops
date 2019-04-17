@@ -1,15 +1,17 @@
+- name: Getting Started First Playbook
+  gather_facts: true
+  hosts: all
+  tasks:
 
+    - name: put a default motd file in place
+      template:
+        src: ./motd.j2
+        dest: /etc/motd
+        owner: root
+        group: root
+        mode: 0644
 
-- name: Configuration & Application Deployment
-  remote_user: root
-  gather_facts: True
+    - name: Display the config
+      debug:
+        msg: "System is {{ ansible_system }} and the OS is {{ ansible_os_family }}"
 
-- debug: msg="Hello World!"
-
-- name: put a default motd file in place
-  template:
-    src:  motd.j2
-    dest: /etc/motd
-    owner: root
-    group: root
-    mode: 0644
