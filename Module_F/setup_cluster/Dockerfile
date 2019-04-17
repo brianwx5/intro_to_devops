@@ -21,3 +21,5 @@ RUN ssh-keygen -A
 
 RUN echo "/usr/sbin/sshd" >> /tmp/start_sshd.sh
 RUN chmod 777 /tmp/start_sshd.sh
+
+ENTRYPOINT /tmp/start_sshd.sh; /bin/sh
