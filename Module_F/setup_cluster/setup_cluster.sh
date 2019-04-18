@@ -16,7 +16,9 @@ docker build -t cluster-server --build-arg ssh_pub_key="$(cat ./clusterkey.pub)"
 
 sleep 2
 
-for i in $(seq 1 1 20)
+server_count=20
+
+for i in $(seq 1 1 $server_count)
 do
 if [[ ${i} == 1 ]]; then
 docker run -i -t -d --name cluster-master cluster-server
