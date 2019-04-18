@@ -27,6 +27,8 @@ RUN apk add python
 
 
 RUN mkdir -p /opt/ansible/launchpad/
+RUN mkdir -p /root/.ansible/
+
 RUN echo "$ssh_prv_key" > /opt/ansible/launchpad/clusterkey
 
 ENV ANSIBLE_HOST_KEY_CHECKING=False

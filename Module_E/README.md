@@ -1,14 +1,14 @@
 # Introduction to Configuration
 
-## Section II - Introduction
+## Section I - Introduction
 
-`Configuration` is the installation of applicable depdencies onto your target system
+`Configuration` is the installation of applicable dependencies onto your target system
 
 For example, if you are a DevOps Engineer and you work in an organization that 
 writes a lot of `Java applications`, for the application to be successfully deployed to a container or server,
 that resource needs `Java` installed!
 
-This might seem trivial given one of older exercises, if you're on a server it's just 
+This might seem trivial given one of older exercises, if you're on a CentOS server it's just 
 `sudo yum install java-1.8.0-openjdk`
 
 Consider the following scenario, I have `n` servers to configure where
@@ -25,8 +25,10 @@ This is the `configuration problem` how can I operate and configure a fleet of r
 efficiently and easily
 
 
----
+## Section II - Activities Intro
 
+For the next few activities we're going to manually (without a package manager)
+install the programming languages `Ruby` and `Go`
 
 ## Section II - Activity I - Install Ruby
 
@@ -83,6 +85,8 @@ modify where you need to for `Go lang`
 
 After you are finished, you can either run the autograder `/resources/go_ag.sh` or 
 type `which go` to make sure it's installed properly
+
+**Pro Tip** If you're stuck take a look in `Module_E/resources` for some help
 
 ## Section II - Activity III - Install Go Lang (Python Script)
 
@@ -216,7 +220,9 @@ Enter `al`
 docker exec -it al /bin/ash
 ```
 
-
+(**Container**)
+- Install OpenSSH
+- Make the root user password **blank**
 ```bash
 apk add --no-cache openssh
 passwd -d root
@@ -224,22 +230,34 @@ passwd -d root
 
 Exit the container by typing `exit`
 
-On the `host` OS (centos) let's create a SSH key, don't set a passphrase!
+(**Host**)
+
+On the `host` OS (CentOS) let's create a SSH key, don't set a passphrase!
 
 ```bash
 ssh-keygen -f ./al-key -t rsa -N ''
 ```
+(**Host**)
 
 Copy and paste this output to a notepad (this is the public key)
 ```bash
 cat al-key.pub
 ```
+(**Host**)
 
 Enter `al` again
 ```bash
 docker exec -it al /bin/ash
 ```
 
+(**Container**)
+
+- Create a new directory
+- Create an `authorized_keys` file
+- Install `Vim`
+- Copy and paste the `public key` into vim, while it has `/root/.ssh/authorized_keys`
+open
+- Change the permissions of a directory and a file
 ```bash
 mkdir -p /root/.ssh
 touch /root/.ssh/authorized_keys
@@ -249,28 +267,31 @@ chmod 700 /root/.ssh
 chmod 640 /root/.ssh/authorized_keys
 ```
 
-Copy and paste the `public key` into vim, while it has `/root/.ssh/authorized_keys`
-open
 
+(**Container**)
 
+- Allow root `ssh` access
+- Allow `ssh` access for users with empty passwords
 ```bash
-vim /etc/ssh/sshd_config
+echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+echo "PermitEmptyPasswords yes" >> /etc/ssh/sshd_config
+
 ```
 
-Uncomment "PermitRootLogin" and make it appear as below
+(**Container**)
 
-![Alt text](./resources/ss33.png?raw=true)
-
-
-Start the SSHD service
+- Generate Keys for ``sshd``
+- Start the ``sshd`` service
 ```
 ssh-keygen -A
 /usr/sbin/sshd
 ```
 
-Exit the container 
+Exit the container by typing `exit`
 
-Try to **SSH** into `al`
+(**Host**)
+
+Now try to **SSH** into `al`
 ```bash
 ssh -i al-key root@$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' al)
 ```
@@ -278,9 +299,58 @@ You should see output similar to below
 
 ![Alt text](./resources/ss33_2.png?raw=true)
 
-**Wow** you've just set up SSH on a container, this will serve as the building block
+**Wow** you've just set up SSH on a container and SSH'd into it, this will serve as the building block
 for ``Module F``!
 ## Section III - Docker & Configuration - Review
 
+- What is [Docker](https://opensource.com/resources/what-docker)?
+- How fun is it to run all of these commands by hand?
+- What is [ssh](https://www.wikiwand.com/en/Secure_Shell)?
+- Can you `ssh` using a key?
+- Can you `ssh` without a password?
+- Is `sshd` a service? 
+- What port does `sshd` bind by default?
+- What layer of the OSI model does `ssh` operate within?
+
 
 ## Introduction to Configuration - Reflection
+
+Let's revisit one of the earlier sections
+
+Consider the script ``Module_E/resources/install_sw.sh``
+
+``` bash
+#!/usr/bin/env bash
+
+sudo yum install wget -y
+wget -O /tmp/ruby.tar.gz https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.2.tar.gz
+
+cd /tmp
+tar -xzf ruby.tar.gz
+cd /tmp/ruby-2.6.2
+
+
+bash configure
+make
+sudo make install
+```
+
+Before we could begin to install `Ruby` we installed a utility `wget` 
+to assist with HTTP getting the `Ruby` resources
+
+I brought this up to illustrate how `configuration` can be this lego-like 
+process, where you need to perform an action **before** you can perform another
+
+Another example of this
+
+```bash
+touch /tmp/random/folder/file.txt
+```
+
+If the directory ``/tmp/random/folder/`` doesn't exist you
+have to create it first ``mkdir -p /tmp/random/folder/``
+
+This extends into `users`, `groups`, and `services` 
+
+The gist is be wary of **how** whatever you're configuring works and **what**
+steps you have to take sequentially! 
