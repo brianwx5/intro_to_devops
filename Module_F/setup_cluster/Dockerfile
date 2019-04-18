@@ -30,5 +30,7 @@ RUN mkdir -p /opt/ansible/launchpad/
 RUN echo "$ssh_prv_key" > /opt/ansible/launchpad/clusterkey
 
 ENV ANSIBLE_HOST_KEY_CHECKING=False
+ENV ANSIBLE_CONFIG=/$(whoami)/.ansible/ansible.cfg
+
 
 ENTRYPOINT /tmp/start_sshd.sh; /bin/sh

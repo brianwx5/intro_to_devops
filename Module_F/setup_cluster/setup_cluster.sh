@@ -36,6 +36,8 @@ docker cp ansible-playbook.yml cluster-master:/opt/ansible/launchpad/ansible-pla
 
 docker cp motd.j2 cluster-master:/opt/ansible/launchpad/motd.j2
 
+docker cp ansible.cfg cluster-master:/root/.ansible/ansible.cfg
+
 # time ansible-playbook /opt/ansible/launchpad/ansible-playbook.yml -i /opt/ansible/launchpad/host.txt
 # ansible -m setup hostname
 # docker exec -it cluster-master /bin/sh -c "time ansible-playbook /opt/ansible/launchpad/ansible-playbook.yml -i /opt/ansible/launchpad/host.txt"
