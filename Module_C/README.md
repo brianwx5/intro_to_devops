@@ -96,7 +96,7 @@ We then exit the script with a exit code of 1, denoting there was an error along
 **Resources**
 - http://www.tldp.org/LDP/abs/html/exitcodes.html
 
-## Section IV - Linux Processes
+## Section IV - Linux Processes & Fork vs. Exec
 
 A ``process`` is an instance of a running application
 
@@ -107,9 +107,6 @@ application!
 
 Every ``process`` has a ``PID`` or ``Process Identifying Number``
 
-
-## Section V - Fork vs. Exec
-
 ``Fork`` and ``Exec`` are two ways a ``process`` can be brought to life!
 
 
@@ -119,6 +116,22 @@ Every ``process`` has a ``PID`` or ``Process Identifying Number``
 
 Keep this distinction in mind if when you are attempting to understand
 how a `service` starts or even your own applications
+
+## Section V - Channels & Sockets
+
+`Linux` communicates over streams (that are actually just file descriptors, 
+that are actually just sockets), let's review a few
+
+- `stdin`
+- `stdout`
+- `stderr`
+
+`stdout` is what you see when you execute the command `echo "Hello World"`
+
+`stderr` is what you see when you execute the command `ech "Hello World"`
+
+`stdin` is what you see when you're prompted in your shell session to input
+text
 
 
 ## Section VI - Signals (IPC) - Interprocess Communication
@@ -206,7 +219,7 @@ For our purposes, sometimes you might need to execute multiple long running
 tasks in your shell session, but do other work in the meantime. `Jobs`
 could potentially be a solution
 
-## Section IX - Activity 1 - Linux Scripting and Operating Systems**
+## Section IX - Activity 1 - Linux Scripting and Operating Systems
 
 
 Consider the following code from `/Module_C/scripts/start.sh`
@@ -235,6 +248,6 @@ execute `status_code.py`
 `status_code.py` will randomly select and exit it's execution with a 
 particular `status code` between **0 and 2**
 
-Within `start.sh` your task is to `echo` "Okay" if the status code is `0` and `echo` "Not Okay"
-if the status code is `< 0`
+Within `start.sh` your task is to `echo` "Okay" if the exit code is `0` and `echo` "Not Okay"
+if the exit code is `< 0`
 
