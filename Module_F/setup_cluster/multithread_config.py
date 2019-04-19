@@ -6,7 +6,7 @@ def worker():
     while True:
         item = pool.get()
         print(item)
-        cmd_list= item.split(" ")
+        cmd_list= item.split("*")
         cmd_list.append("ps -ef")
         print(cmd_list)
         #output = subprocess.Popen(["ssh", "-o", " StrictHostKeyChecking no", "-i",  "clusterkey", "root@172.17.0.3", "ps -ef"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
@@ -26,7 +26,7 @@ so, er = output.communicate()
 
 ip_list = str(so.decode("utf-8")).split("\n")
 for i in ip_list[:-1]:
-    command = "ssh -o StrictHostKeyChecking no -i clusterkey root@"+i
+    command = "ssh*-o*StrictHostKeyChecking no*-i*clusterkey*root@"+i
     pool.put(command)
     pass
 
