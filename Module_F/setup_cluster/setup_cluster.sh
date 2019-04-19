@@ -48,3 +48,8 @@ docker cp ansible.cfg cluster-master:/root/.ansible/ansible.cfg
 # done
 # ssh -o "StrictHostKeyChecking no" -i clusterkey root@$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' cluster-server)
 
+yum install -y https://centos7.iuscommunity.org/ius-release.rpm
+yum install -y python36u python36u-libs python36u-devel python36u-pip
+curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+python3.6 get-pip.py
+
