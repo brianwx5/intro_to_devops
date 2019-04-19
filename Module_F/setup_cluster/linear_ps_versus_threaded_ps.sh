@@ -16,5 +16,5 @@ echo "------------------------------"
 
 echo "------------------------------"
 echo "Executing Python Script"
-time python3.6 $python_script 10000 >> ./performance_output.txt
+time python3.6 $python_script >> ./performance_output.txt
 echo "------------------------------"

@@ -103,7 +103,7 @@ Copy the `host.txt` and `clusterkey` file to `/tmp` and inspect
 You should see a list of ip addresses, this is the `cluster` you're
 going to manage!
 
-## Section III - Activity II  - Linear Configuration Scripting
+## Section III - Activity II  - Linear Scripting For Stacks
 
 (On the "`master-server`")
 
@@ -139,4 +139,31 @@ You can `kill -9 1` to completely destroy your `stack`
 **Pro Tip** don't destroy things yet!
 
 
+## Section III - Activity III - Linear Versus Multithreaded Scripting for Stacks
 
+We're going to expand on the `ps -ef` linear example from the previous section
+
+Execute the command below!
+
+```bash
+bash linear_ps_versus_threaded_ps.sh
+```
+
+**Example Output**
+
+```
+Executing Bash Script
+
+real    0m2.107s
+user    0m0.167s
+sys     0m0.073s
+
+Executing Python Script
+
+real    0m0.900s
+user    0m0.216s
+sys     0m0.081s
+```
+
+For my trial run we can see that the `Python` script is about
+a full second faster than the `Bash` script
