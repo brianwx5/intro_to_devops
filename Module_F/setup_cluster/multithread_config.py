@@ -10,7 +10,7 @@ def worker():
         cmd_list.append("ps -ef")
         print(cmd_list)
         #output = subprocess.Popen(["ssh", "-o", " StrictHostKeyChecking no", "-i",  "clusterkey", "root@172.17.0.3", "ps -ef"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-        output = subprocess.Popen([cmd_list], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        output = subprocess.Popen(cmd_list, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         so, er = output.communicate()
         cmd_output = str(so.decode("utf-8"))
         print(cmd_output)
