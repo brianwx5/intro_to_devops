@@ -11,20 +11,21 @@ the additional pieces those systems need, like backups or load balancing, ideall
  existing solutions to new problems."
 
 
-## Tools of The Trade
+## Tools and Skill of The Trade
 
-<iframe src='https://xebialabs.com/periodic-table-of-devops-tools/embed/' style='border:0px #FFFFFF none;' name='Periodic Table of DevOps' scrolling='no' frameborder='1' marginheight='0px' marginwidth='0px' height='625px' width='925px'></iframe>
-[![](./periodic-table-of-devops-tools-v3.pdf)](https://xebialabs.com/periodic-table-of-devops-tools/embed/)
+[![](./t3.jpg)](#)
+
+[![](./periodic-table-of-devops-tools-v3.png)](https://xebialabs.com/assets/files/infographics/periodic-table-of-devops-tools-v3.pdf)
 
 
-<object data="https://xebialabs.com/assets/files/infographics/periodic-table-of-devops-tools-v3.pdf" type="application/pdf" width="700px" height="700px">
-    <embed src="https://xebialabs.com/assets/files/infographics/periodic-table-of-devops-tools-v3.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://xebialabs.com/assets/files/infographics/periodic-table-of-devops-tools-v3.pdf">Download PDF</a>.</p>
-    </embed>
-</object>
 
 # Course Overview
-Each section is broken up into modules!
+- Each section is broken up into modules! 
+- Each module will have its associated content and activities
+- All knowledge mastery questions are created in the form of copy and pastable questions for `Googability`
+- Please create issues for any misleading or missing content, as well as topics you would like to see covered 
+additionally or more in depth
+
 
 ### Table of Contents
 1. [Module A - Introduction to Operating Systems ](./Module_A/README.md)
@@ -38,9 +39,9 @@ Each section is broken up into modules!
 5. [Module E - Introduction to Configuration ](./Module_E/README.md)
     1. What is the `config problem`?
 6. [Module F - Advanced Configuration ](./Module_F/README.md)
-    1. How can I `config` at scale?
+    1. How can I `config` at scale `programmatically` and with `Ansible`?
 
 
 ---
 
-#### [What should DevOps mean to you?](./devops_story.md)
+#### [What should DevOps mean to you (potentially)?](./devops_story.md)
