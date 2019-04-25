@@ -14,10 +14,14 @@ the additional pieces those systems need, like backups or load balancing, ideall
 ## Tools of The Trade
 
 <iframe src='https://xebialabs.com/periodic-table-of-devops-tools/embed/' style='border:0px #FFFFFF none;' name='Periodic Table of DevOps' scrolling='no' frameborder='1' marginheight='0px' marginwidth='0px' height='625px' width='925px'></iframe>
+[![](./periodic-table-of-devops-tools-v3.pdf)](https://xebialabs.com/periodic-table-of-devops-tools/embed/)
 
-<div class="iframe_container">
-  <iframe src="http://www.youtube.com/embed/E-ONNjFoOx0" frameborder="0" allowfullscreen="allowfullscreen"> </iframe>
-</div>
+
+<object data="https://xebialabs.com/assets/files/infographics/periodic-table-of-devops-tools-v3.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="https://xebialabs.com/assets/files/infographics/periodic-table-of-devops-tools-v3.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://xebialabs.com/assets/files/infographics/periodic-table-of-devops-tools-v3.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
 
 # Course Overview
 Each section is broken up into modules!
