@@ -11,6 +11,13 @@ the additional pieces those systems need, like backups or load balancing, ideall
  existing solutions to new problems."
 
 
+## Tools of The Trade
+
+<iframe src='https://xebialabs.com/periodic-table-of-devops-tools/embed/' style='border:0px #FFFFFF none;' name='Periodic Table of DevOps' scrolling='no' frameborder='1' marginheight='0px' marginwidth='0px' height='625px' width='925px'></iframe>
+
+<div class="iframe_container">
+  <iframe src="http://www.youtube.com/embed/E-ONNjFoOx0" frameborder="0" allowfullscreen="allowfullscreen"> </iframe>
+</div>
 
 # Course Overview
 Each section is broken up into modules!
