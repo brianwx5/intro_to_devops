@@ -2,12 +2,34 @@
 
 ## What is DevOps?
 
-DevOps is what you would experience if you asked a software developer to
-run an operations team.
+Directly taken from: `https://landing.google.com/sre/books/`
 
-Operations consists of the infrastructure and associated systems that are created and administered 
-to ultimately be used for your company’s or personal application
 
+"**[DevOps Engineers]** apply the principles of computer science and engineering to the design and development of computing systems: generally, large distributed ones. 
+Sometimes, our task is writing the software for those systems alongside our product development counterparts; sometimes, our task is building all 
+the additional pieces those systems need, like backups or load balancing, ideally so they can be reused across systems; and sometimes, our task is figuring out how to apply
+ existing solutions to new problems."
+
+
+
+# Course Overview
 Each section is broken up into modules!
 
-### Module A - Introduction to Operating Systems 
+### Table of Contents
+1. [Module A - Introduction to Operating Systems ](./Module_A/README.md)
+	1. `How do I work this thing called an OS?`
+2. [Module B - Introduction to Linux Scripting ](./Module_B/README.md)
+    1. How do I `script` in `Bash` and `Python`?
+3. [Module C - Linux Scripting and Operating Systems ](./Module_C/README.md)
+    1. How does the `OS influence` my `scripts`?
+4. [Module D - Computer Science and Scripting ](./Module_D/README.md)
+    1. How can I write `mathematically performant` scripts? 
+5. [Module E - Introduction to Configuration ](./Module_E/README.md)
+    1. What is the `config problem`?
+6. [Module F - Advanced Configuration ](./Module_F/README.md)
+    1. How can I `config` at scale?
+
+
+---
+
+#### [What should DevOps mean to you?](./devops_story.md)

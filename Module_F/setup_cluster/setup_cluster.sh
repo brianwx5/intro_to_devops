@@ -40,6 +40,10 @@ docker cp motd.j2 cluster-master:/opt/ansible/launchpad/motd.j2
 
 docker cp ansible.cfg cluster-master:/root/.ansible/ansible.cfg
 
+docker cp linear_ps.sh cluster-master:/opt/ansible/launchpad/linear_ps.sh
+docker cp multithread_config.py cluster-master:/opt/ansible/launchpad/multithread_config.py
+
+
 # time ansible-playbook /opt/ansible/launchpad/ansible-playbook.yml -i /opt/ansible/launchpad/host.txt
 # ansible -m setup hostname
 # docker exec -it cluster-master /bin/sh -c "time ansible-playbook /opt/ansible/launchpad/ansible-playbook.yml -i /opt/ansible/launchpad/host.txt"
