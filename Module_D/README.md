@@ -483,10 +483,43 @@ for c in l:
 
 ```
 
-Execute the script and check it's output, you might notice that it doesn't 
+Execute the script and check it's output, you might notice that it doesnt
 necessarily print "hello" in its correct order
 
--- add analysis and activity
+This is because, each invocation of the `printer` function will randomly sleep between 
+zero and two seconds
+
+Let's take a deeper dive into how the code executes
+
+- The `main thread` executes, the context is where the function `printer` is defined,
+where the `list` `l` is defined, and the `for loop` where we're starting `new threads`
+- For each element in `list` `l` a new thread will be started within the scope of 
+the `printer` function call, this is executed sequentially, as the `main thread` 
+has to iterate on each individual element and create a `new thread`
+- Each `new thread` started in the `for loop` exist for the invocation of the function
+`printer`
+- Each function call to `printer` will sleep randomly for between zero and two seconds, after
+which it will print a specific letter
+- If `h` is passed to the function `printer` and sleeps for two seconds in a `new thread`, while `e` 
+is passed to the function `printer` and doesnt't sleep at all, you can see how printing the elements can get out of order
+
+**Example Output**
+
+```bash
+l
+o
+h
+l
+e
+
+```
+The gist of this section is to introduce threading, mainly that threads can execute in parallel.
+
+
+**Resources on Multithreading**
+- https://www.techbeamers.com/python-multithreading-concepts/
+- https://pragmacoders.com/blog/multithreading-in-go-a-tutorial
+
 
 ***
 

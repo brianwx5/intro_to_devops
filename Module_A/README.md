@@ -26,12 +26,37 @@ but not screenshot by screenshot "how to install a program" type of guides.
 
 ### Section I - Manual Install Guide
 
-Insert Video Here
-    
-### Section I - Image Install Guide
+**Download the CentOS 7 image from the link below:**
 
-Insert Video Here
+https://www.osboxes.org/centos/
     
+**Import the Image**
+
+https://docs.oracle.com/cd/E26217_01/E26796/html/qs-import-vm.html
+
+**Login with the password `osboxes.org`**
+
+**Navigate to the terminal, the link below is a video reference**  
+
+https://www.youtube.com/watch?reload=9&v=gU4-2NjeWkg
+
+**Create a new user named `devops`**
+
+```bash
+sudo adduser devops
+```
+
+**Download `Git`**
+```bash
+sudo yum install -y git
+```
+
+**Lastly, clone this repo to whatever directory you see fit!**
+
+```bash
+git lone https://github.com/grandmarquis/intro_to_devops.git
+```
+
     
 ### Section I - Knowledge Mastery
 

@@ -1,6 +1,6 @@
 ## An Aside: What should DevOps mean to you?
 
-####Think about a traditional team of sys admins and software developers thirty years ago (this is a dramatization).
+#### Think about a traditional team of sys admins and software developers thirty years ago (this is a dramatization).
 
 Software Developers: "Hey sys admins, we need a new environment."
 
@@ -33,7 +33,7 @@ System Admins: \*Facepalm*
 
 System Admins: "Next can we communicate requirements more ahead of time, thanks."
 
-####Under a DevOps model
+#### Under a DevOps model
 
 Software Developer A in Team A: "It looks like we haven't turned on auto scaling in AWS, can we just spin up some new
 application servers?"

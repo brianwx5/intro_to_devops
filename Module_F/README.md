@@ -70,9 +70,6 @@ All other subsequent iterations we're creating `cluster-servers` to be managed b
 - On each iteration we are also checking the `ip4 address` and the 
 `bound ports`within the container
 
-We can think of this architecture similar to the diagram below:
-
--- insert diagram --
 
 Now that we've set up our cluster, let's pretend that our `containers` are `servers`
 
@@ -128,7 +125,7 @@ done
 
 **Congratulations you've just executed shell commands across a `stack` via `ssh`!**
 
-Building on our previous lessons you can image the possibilities:
+Building on our previous lessons you can imagine the possibilities:
  
 You can `apk add wget` across you `stack` to install `wget` 
 
@@ -167,3 +164,53 @@ sys     0m0.081s
 
 For my trial run we can see that the `Python` script is about
 a full second faster than the `Bash` script
+
+## Section IV - Introduction to Ansible
+
+`Ansible` is a tool that operates via `ssh` that can
+configure resources in a predefined manner. 
+
+Generally, one will create `tasks` or an `Ansible playbook` that can execute 
+multiple `tasks`
+
+`Ansible` lastly has `targets`, or those whom I am attempting to manage
+
+- https://www.ansible.com/use-cases/configuration-management
+
+Consider `/Module_F/setup_cluster/ansible-playbook.yml`
+
+```
+- name: Getting Started First Playbook
+  gather_facts: true
+  hosts: all
+  tasks:
+
+    - name: put a default motd file in place
+      template:
+        src: ./motd.j2
+        dest: /etc/motd
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: Display the config
+      debug:
+        msg: "System is {{ ansible_system }} and the OS is {{ ansible_os_family }}"
+
+```
+
+
+## Section IV - Activity I - Ansible, Managing MOTD
+
+
+Let's ssh into our `cluster-master`
+
+```bash
+ssh -o "StrictHostKeyChecking no" -i clusterkey root@$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' cluster-master)
+```
+
+Execute this command from within `cluster-master` to deploy a new `MOTD` to the managed hosts
+```bash
+ansible-playbook /opt/ansible/launchpad/ansible-playbook.yml -i /opt/ansible/launchpad/host.txt
+```
+
